@@ -6,6 +6,7 @@ url: https://github.com/kaihchang/zmk-config-kai-cosmos
 requires: [nice_nano_v2]
 features:
   - keys
+  - pointer
 siblings:
   - cosmos_left
   - cosmos_right
