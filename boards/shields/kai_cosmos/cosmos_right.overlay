@@ -13,20 +13,22 @@
 
 &kscan0 {
 	compatible = "zmk,kscan-gpio-matrix";
+    diode-direction = "col2row";
+    wakeup-source;
 	
 	col-gpios
-		= <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-		, <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-		, <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-		, <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-		, <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+		= <&gpio1  6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // col_0_right P1.06
+		, <&gpio1  4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // col_1_right P1.04
+		, <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // col_2_right P0.11
+		, <&gpio1  0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // col_3_right P1.00
+		, <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // col_4_right P0.24
 		;
 
 	row-gpios
-		= <&pro_micro 18 GPIO_ACTIVE_HIGH>
-		, <&pro_micro 5 GPIO_ACTIVE_HIGH>
-		, <&pro_micro 4 GPIO_ACTIVE_HIGH>
-		, <&pro_micro 9 GPIO_ACTIVE_HIGH>
+		= <&gpio0  9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row_0_right P0.09
+		, <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row_1_right P0.10
+		, <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row_2_right P1.11
+		, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row_3_right P1.13
 		;
 };
 
@@ -41,8 +43,8 @@
 
     spi0_sleep: spi0_sleep {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 17)>,
-                	<NRF_PSEL(SPIM_MOSI, 0, 20)>,
+            psels = <NRF_PSEL(SPIM_SCK,  0, 17)>, // SCLK P0.17
+                	<NRF_PSEL(SPIM_MOSI, 0, 20)>, // SDIO P0.20
                 	<NRF_PSEL(SPIM_MISO, 0, 20)>;
             low-power-enable;
         };
@@ -57,14 +59,14 @@
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
+    cs-gpios = <&gpio0 8 GPIO_ACTIVE_LOW>; // NCS P0.08
 
     trackball: trackball@0 {
         status = "okay";
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
-        irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // MOT P0.06
         cpi = <600>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
