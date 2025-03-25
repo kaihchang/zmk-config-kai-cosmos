@@ -1,0 +1,5 @@
+config SHIELD_COSMOS_LEFT
+    def_bool $(shields_list_contains,cosmos_left)
+
+config SHIELD_COSMOS_RIGHT
+    def_bool $(shields_list_contains,cosmos_right)

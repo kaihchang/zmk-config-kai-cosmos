@@ -1,0 +1,11 @@
+file_format: "1"
+id: kai-cosmos
+name: kai-cosmos
+type: shield
+url: https://github.com/kaihchang/zmk-config-kai-cosmos
+requires: [nice_nano_v2]
+features:
+  - keys
+siblings:
+  - cosmos_left
+  - cosmos_right
