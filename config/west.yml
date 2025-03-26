@@ -16,8 +16,9 @@ manifest:
   - name: zmk-pmw3610-driver
     remote: badjeff
     revision: main
-  - name: zmk-split-peripheral-input-relay
-    remote: badjeff
-    revision: main
+  # For more than one pointing device
+  # - name: zmk-split-peripheral-input-relay
+  #   remote: badjeff
+  #   revision: main
   self:
     path: config
