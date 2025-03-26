@@ -15,6 +15,11 @@
 #define Mouse 4
 #define Game 5
 
+/*
+    No chosen zmk,matrix-transform here if using ZMK stuidio.
+    https://zmk.dev/docs/features/studio#adding-zmk-studio-support-to-a-keyboard
+*/
+
 &mt {
     //  flavor = "tap-preferred";
     // tapping_term_ms = <200>;
