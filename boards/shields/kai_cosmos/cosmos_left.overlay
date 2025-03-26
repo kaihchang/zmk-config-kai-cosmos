@@ -18,3 +18,9 @@
 		, <&gpio1  0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row_3_left P1.00
 		;
 };
+
+/ {
+	vtrackball: virtual_input_trackball {
+		compatible = "zmk,virtual-input";
+	};
+};
