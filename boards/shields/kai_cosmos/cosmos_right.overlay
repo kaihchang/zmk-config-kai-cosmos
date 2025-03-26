@@ -23,3 +23,15 @@
 		, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row_3_right P1.13
 		;
 };
+
+/ {
+	vtrackball: virtual_input_trackball {
+		compatible = "zmk,virtual-input";
+	};
+
+	input_relay_config_trackball {
+		compatible = "zmk,split-peripheral-input-relay";
+		device = <&vtrackball>;
+		relay-channel = <102>;
+	};
+};
