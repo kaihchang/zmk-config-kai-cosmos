@@ -1,4 +1,4 @@
-#include "cosmos-layout.dtsi"
+#include "cosmos-layouts.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
 
 &physical_layout0 {
@@ -9,6 +9,7 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout0;
+        // other chosen items
     };
 
     vbatt: vbatt {
@@ -30,6 +31,13 @@
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
         wakeup-source;
     };
+};
+
+/ {
+	vtrackball: virtual_input_trackball {
+		compatible = "zmk,virtual-input";
+	};
 };

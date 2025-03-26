@@ -1,14 +1,12 @@
 #include "cosmos.dtsi"
 
 &kscan0 {
-    diode-direction = "col2row";
-	
 	col-gpios
-		= <&gpio0  9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // col_0_left P0.09
-		, <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // col_1_left P0.10
-		, <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // col_2_left P1.11
-		, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // col_3_left P1.13
-		, <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // col_4_left P1.15
+		= <&gpio0  9 (GPIO_ACTIVE_HIGH)> // col_0_left P0.09
+		, <&gpio0 10 (GPIO_ACTIVE_HIGH)> // col_1_left P0.10
+		, <&gpio1 11 (GPIO_ACTIVE_HIGH)> // col_2_left P1.11
+		, <&gpio1 13 (GPIO_ACTIVE_HIGH)> // col_3_left P1.13
+		, <&gpio1 15 (GPIO_ACTIVE_HIGH)> // col_4_left P1.15
 		;
 
 	row-gpios
@@ -17,10 +15,4 @@
 		, <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row_2_left P0.11
 		, <&gpio1  0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // row_3_left P1.00
 		;
-};
-
-/ {
-	vtrackball: virtual_input_trackball {
-		compatible = "zmk,virtual-input";
-	};
 };
