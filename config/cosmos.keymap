@@ -15,10 +15,6 @@
 #define Mouse 4
 #define Game 5
 
-/ {
-    chosen { zmk,matrix_transform = &default_transform; };
-};
-
 &mt {
     //  flavor = "tap-preferred";
     // tapping_term_ms = <200>;
