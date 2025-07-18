@@ -37,6 +37,14 @@
 &sl { release-after-ms = <1500>; };
 
 / {
+    temp_mouse_layer: temp_mouse_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>; // Required for layer index and timeout
+        // The layer index to activate (e.g., 2 for your third layer)
+        // And the timeout in milliseconds after inactivity to deactivate the layer
+        bindings = <&zip_temp_layer 4 2000>; // Activates layer 2 for 2000ms
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -182,7 +190,7 @@
                 &kp Q           &kp W           &kp E               &kp R       &kp T      &kp Y  &kp U        &kp I                               &kp O                              &kp P
                 &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &kp F       &kp G      &kp H  &kp J        &mt RIGHT_CONTROL K                 &mt RIGHT_ALT L                    &mt RIGHT_GUI SQT
                 &kp Z           &kp X           &kp C               &kp V       &kp B      &kp N  &kp M        &holdtap_comma LA(LC(COMMA)) COMMA  &holdtap_period LG(PERIOD) PERIOD  &kp FSLH
-                &kp LC(Z)       &kp LC(Y)       &mo 1               &kp LSHIFT  &kp ENTER  &mo 0  &lt 3 SPACE  &mo 2                               &kp PAGE_UP                        &kp PAGE_DOWN
+                &kp LC(Z)       &kp LC(Y)       &mo 1               &kp LSHIFT  &kp ENTER  &mo 0  &lt 3 SPACE  &mo 2                               &msc SCRL_UP                       &msc SCRL_DOWN
             >;
         };
 
@@ -206,18 +214,18 @@
 
         _NAV { // layer 3
             bindings = <
-                &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &kp F11  &kp F12  &trans    &trans    &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &kp C_PLAY_PAUSE
-                &kp F6      &kp F7      &kp F8      &kp F9   &kp F10  &kp HOME  &kp LEFT  &kp UP           &kp RIGHT          &kp END
-                &kp F1      &kp F2      &kp F3      &kp F4   &kp F5   &mkp MB4  &mkp MB5  &kp DOWN         &kp PAGE_UP        &kp PAGE_DOWN
-                &trans      &trans      &to 0       &trans   &trans   &trans    &trans    &trans           &kp LC(PAGE_UP)    &kp LC(PAGE_DOWN)
+                &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &kp F11  &kp F12  &mkp MB4         &mkp MB5           &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &kp C_PLAY_PAUSE
+                &kp F6      &kp F7      &kp F8      &kp F9   &kp F10  &kp HOME         &kp LEFT           &kp UP           &kp RIGHT          &kp END
+                &kp F1      &kp F2      &kp F3      &kp F4   &kp F5   &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &kp DOWN         &kp PAGE_UP        &kp PAGE_DOWN
+                &trans      &trans      &to 0       &trans   &trans   &trans           &trans             &trans           &kp LC(PAGE_UP)    &kp LC(PAGE_DOWN)
             >;
         };
 
-        _MOUSE { // layer 4
+        _MOUSE { // layer 4 
             bindings = <
-                &bootloader &none           &none     &none       &none  &none      &msc SCRL_UP    &none  &none  &bootloader
+                &bootloader &none           &none     &none       &none  &none      &none           &none  &none  &bootloader
                 &none       &msc SCRL_UP    &mkp MB1  &mkp MB2    &none  &mkp MB2   &msc SCRL_DOWN  &none  &none  &none
-                &none       &msc SCRL_DOWN  &mkp MB3  &none       &none  &none      &none           &none  &none  &none
+                &none       &msc SCRL_DOWN  &mkp MB3  &none       &none  &none      &msc SCRL_UP    &none  &none  &none
                 &none       &none           &none     &kp LSHIFT  &none  &mkp MB1   &mkp MB3        &none  &none  &none
             >;
         };
