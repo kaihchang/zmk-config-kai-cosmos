@@ -51,6 +51,8 @@
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
 
+        input-processors = <&zip_temp_layer 4 2000>; // Activates layer 4 (_MOUSE) for 2000ms
+
         force-awake;
         /* keep the sensor awake while ZMK activity state is ACTIVE,
            fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
@@ -64,8 +66,18 @@
 };
 
 / {
-  trackball_listener {
-    compatible = "zmk,input-listener";
-    device = <&trackball>;
-  };
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+    };
+
+    zip_temp_layer: zip_temp_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>; // This is standard for temp-layer
+        require-prior-idle-ms = <1000>; // Only activate if idle for 1000ms prior
+
+        // The bindings property specifies the layer and timeout for this processor
+        // It still uses &zmk_temp_layer to interpret these parameters
+        bindings = <&zmk_temp_layer 4 2000>; // Activates layer 4 (_MOUSE) for 2000ms
+    };
 };
