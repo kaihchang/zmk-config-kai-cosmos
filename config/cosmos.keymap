@@ -6,6 +6,7 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/input_transform.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 // layers
 #define Base 0
@@ -36,13 +37,13 @@
 
 &sl { release-after-ms = <1500>; };
 
+&zip_temp_layer 4 2000
+
 / {
-    temp_mouse_layer: temp_mouse_layer {
+    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
         compatible = "zmk,input-processor-temp-layer";
-        #input-processor-cells = <2>; // Required for layer index and timeout
-        // The layer index to activate (e.g., 2 for your third layer)
-        // And the timeout in milliseconds after inactivity to deactivate the layer
-        bindings = <&zip_temp_layer 4 2000>; // Activates layer 2 for 2000ms
+        #input-processor-cells = <2>;
+        require-prior-idle-ms = <1000>; //Only activate the layer if no other input for 1000ms
     };
 
     combos {
