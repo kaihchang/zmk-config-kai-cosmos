@@ -69,4 +69,10 @@
         device = <&trackball>;
         input-processors = <&zip_xy_scaler 1 2>, <&zip_temp_layer 4 1000>; // Switch to auto-mouse temp layer, decrease sensitivity
     };
+
+    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+        require-prior-idle-ms = <1000>; // Only activate if no key presses for 1 seconds
+    };
 };
