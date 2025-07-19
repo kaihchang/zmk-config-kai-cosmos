@@ -214,10 +214,10 @@
 
         _MOUSE {
             bindings = <
-&bootloader  &none           &none     &none     &none                        &none     &none           &none  &none  &bootloader
-&none        &msc SCRL_UP    &mkp MB1  &mkp MB2  &none                        &mkp MB2  &msc SCRL_DOWN  &none  &none  &none
-&none        &msc SCRL_DOWN  &mkp MB3  &none     &none                        &none     &msc SCRL_UP    &none  &none  &none
-             &none           &none     &none     &kp LSHIFT  &none  &mkp MB1  &mkp MB3  &none           &none  &none
+&bootloader  &none           &none     &none             &none                        &none     &none           &none  &none  &bootloader
+&none        &msc SCRL_UP    &mkp MB1  &mkp MB2          &none                        &mkp MB2  &msc SCRL_DOWN  &none  &none  &none
+&none        &msc SCRL_DOWN  &mkp MB3  &none             &none                        &none     &msc SCRL_UP    &none  &none  &none
+             &none           &none     &kp LEFT_CONTROL  &kp LSHIFT  &none  &mkp MB1  &mkp MB3  &none           &none  &none
             >;
         };
 
