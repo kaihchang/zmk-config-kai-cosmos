@@ -50,7 +50,6 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        require-prior-idle-ms = <1000>; // Only activate the layer if there have not been any key presses for 1000 ms
 
         force-awake;
         /* keep the sensor awake while ZMK activity state is ACTIVE,
