@@ -67,6 +67,6 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_temp_layer 4 2000>; // Switch to auto-mouse temp layer, decrease sensitivity
+        input-processors = <&zip_xy_scaler 1 2>, <&zip_temp_layer 4 2000>; // Switch to auto-mouse temp layer, decrease sensitivity
     };
 };
