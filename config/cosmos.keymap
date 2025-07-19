@@ -7,13 +7,14 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
 // layers
-
 #define Base 0
 #define Num 1
 #define Sym 2
 #define Nav 3
 #define Mouse 4
 #define Game 5
+
+#define COMBO_REQUIRE_DELAY 150
 
 /*
     No chosen zmk,matrix-transform here if using ZMK stuidio.
@@ -61,6 +62,7 @@
         combo_manager {
             timeout-ms = <50>;
             key-positions = <0 2>;
+            require-prior-idle-ms = <COMBO_REQUIRE_DELAY>;
             bindings = <&kp LS(LC(ESCAPE))>;
         };
 
@@ -85,6 +87,7 @@
         combo_backspace_1 {
             bindings = <&kp BACKSPACE>;
             key-positions = <11 12>;
+            require-prior-idle-ms = <COMBO_REQUIRE_DELAY>;
             timeout-ms = <30>;
             layers = <0 1 2 3>;
         };
@@ -92,6 +95,7 @@
         combo_delete_2 {
             bindings = <&kp DELETE>;
             key-positions = <12 13>;
+            require-prior-idle-ms = <COMBO_REQUIRE_DELAY>;
             timeout-ms = <30>;
             layers = <0 1 2 3>;
         };
@@ -99,6 +103,7 @@
         combo_backspace_2 {
             bindings = <&kp BACKSPACE>;
             key-positions = <16 17>;
+            require-prior-idle-ms = <COMBO_REQUIRE_DELAY>;
             layers = <0 1 2 3>;
             timeout-ms = <30>;
         };
@@ -106,6 +111,7 @@
         combo_delete_1 {
             bindings = <&kp DELETE>;
             key-positions = <17 18>;
+            require-prior-idle-ms = <COMBO_REQUIRE_DELAY>;
             layers = <0 1 2 3>;
             timeout-ms = <30>;
         };
@@ -113,6 +119,7 @@
         combo_copy {
             bindings = <&kp LC(C)>;
             key-positions = <22 23>;
+            require-prior-idle-ms = <COMBO_REQUIRE_DELAY>;
             layers = <0 1 2 3>;
         };
     };
