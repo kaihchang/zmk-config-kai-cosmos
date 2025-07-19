@@ -189,7 +189,7 @@
 &kp Q           &kp W           &kp E               &kp R        &kp T                             &kp Y        &kp U  &kp I                               &kp O                              &kp P
 &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &kp F        &kp G                             &kp H        &kp J  &mt RIGHT_CONTROL K                 &mt RIGHT_ALT L                    &mt RIGHT_GUI SQT
 &kp Z           &kp X           &kp C               &kp V        &kp B                             &kp N        &kp M  &holdtap_comma LA(LC(COMMA)) COMMA  &holdtap_period LG(PERIOD) PERIOD  &kp FSLH
-                &kp LC(Z)       &kp LC(Y)           &lt 1 ENTER  &kp LSHIFT  &kp LS(ENTER)  &mo 0  &lt 3 SPACE  &mo 2  &msc SCRL_UP                        &msc SCRL_DOWN
+                &kp LC(Z)       &kp LC(Y)           &lt 1 ENTER  &kp LSHIFT  &kp LS(ENTER)  &to 4  &lt 3 SPACE  &mo 2  &msc SCRL_UP                        &msc SCRL_DOWN
             >;
         };
 
@@ -222,7 +222,7 @@
 
         _MOUSE {
             bindings = <
-&none  &none            &none              &none             &none                        &none     &none           &none         &none           &none
+&none  &none            &none              &none             &none                        &none     &none           &none         &none           &to 0
 &none  &msc SCRL_UP     &mkp MB1           &mkp MB2          &none                        &mkp MB2  &msc SCRL_UP    &none         &none           &none
 &none  &msc SCRL_DOWN   &mkp MB3           &none             &none                        &none     &msc SCRL_DOWN  &none         &none           &none
        &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &kp LEFT_CONTROL  &kp LSHIFT  &to 0  &mkp MB1  &mkp MB3  &to 0           &msc SCRL_UP  &msc SCRL_DOWN
