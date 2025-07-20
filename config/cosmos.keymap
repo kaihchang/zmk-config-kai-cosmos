@@ -222,10 +222,10 @@
 
         _MOUSE {
             bindings = <
-&none  &none            &none              &none             &none                        &none     &none           &none         &none           &to 0
-&none  &msc SCRL_UP     &mkp MB1           &mkp MB2          &none                        &mkp MB2  &msc SCRL_UP    &none         &none           &none
-&none  &msc SCRL_DOWN   &mkp MB3           &none             &none                        &none     &msc SCRL_DOWN  &none         &none           &none
-       &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &kp LEFT_CONTROL  &kp LSHIFT  &to 0  &mkp MB1  &mkp MB3  &to 0           &msc SCRL_UP  &msc SCRL_DOWN
+&bootloader  &none           &none      &none             &none                               &mkp MB1  &mkp MB2        &msc SCRL_UP     &mkp MB3           &none
+&none        &msc SCRL_UP    &mkp MB1   &mkp MB2          &kp DEL                             &mkp MB2  &msc SCRL_UP    &msc SCRL_DOWN   &none              &none
+&kp LC(X)    &msc SCRL_DOWN  &mkp MB3   &kp LC(PAGE_UP)   &kp LC(PAGE_DOWN)                   &none     &msc SCRL_DOWN  &none            &none              &none
+             &kp LC(C)       &kp LC(V)  &kp LEFT_CONTROL  &kp LSHIFT         &none  &mkp MB1  &mkp MB3  &none           &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)
             >;
         };
 
