@@ -22,11 +22,11 @@
 */
 
 &mt {
-    //  flavor = "tap-preferred";
-    // tapping_term_ms = <200>;
+    flavor = "tap-preferred";
+    tapping-term-ms = <200>;
 
-    flavor = "balanced";
-    tapping-term-ms = <170>;
+    // flavor = "balanced";
+    // tapping-term-ms = <170>;
 };
 
 &sk {
